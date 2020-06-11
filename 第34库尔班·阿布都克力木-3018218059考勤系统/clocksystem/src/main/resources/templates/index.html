@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>考勤管理系统</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="/static/lib/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/static/lib/css/matrix-style.css"/>
+    <link rel="stylesheet" href="/static/lib/css/matrix-media.css"/>
+    <link rel="stylesheet" href="/static/lib/css/font-awesome.css"/>
+    <link rel="stylesheet" href="/static/lib/css/uniform.css"/>
+</head>
+<body>
+
+<div id="l-app">
+    <l-brand></l-brand>
+    <l-navigator>
+        <l-drop-menu-btn id="userInfo" title="欢迎您" icon="icon icon-user">
+            <l-drop-menu-item href="/login" icon="icon icon-reply" title="注销"></l-drop-menu-item>
+        </l-drop-menu-btn>
+    </l-navigator>
+    <l-sidebar>
+        <l-side-btn href="/index" icon="icon icon-home" title="首页"></l-side-btn>
+        <l-side-btn href="/employee" icon="icon icon-group" title="员工管理"></l-side-btn>
+        <l-side-btn href="/department" icon="icon icon-briefcase" title="部门管理"></l-side-btn>
+        <l-side-btn href="/work" icon="icon icon-edit" title="考勤管理"></l-side-btn>
+        <l-side-btn href="/buzz" icon="icon icon-plane" title="出差管理"></l-side-btn>
+        <l-side-btn href="/leave" icon="icon icon-ambulance" title="请假管理"></l-side-btn>
+        <l-side-btn href="/stat" icon="icon icon-bar-chart" title="数据统计"></l-side-btn>
+        <l-side-btn href="/system" icon="icon icon-cog" title="系统设置"></l-side-btn>
+    </l-sidebar>
+
+    <l-content>
+        <l-router slot="router" href="/index" title="首页" iscurrent="false"></l-router>
+
+        <l-container>
+            <l-widget-container title="公司简介" icon="icon icon-briefcase">
+                <l-container>
+                    <h4>天津大学2018级</h4>
+                    <p>软件工程五班 平云 李鹏恩 库尔班 麦尼外尔·阿卜杜热伊木</p>
+                    <img src="../static/lib/img/company.jpg" style="height: 200px;margin-bottom: 10px" />
+                    <p>地址：中国 天津 天津市 天津大学</p>
+                </l-container>
+            </l-widget-container>
+            <l-widget-container title="权限说明" icon="icon icon-briefcase">
+                <l-container>
+                    <h4>权限说明</h4>
+                    <p>超级管理员：所有权限<br/>人事管理员：假期审核，出差审核，部门管理，员工管理<br/>部门领导：假期审核，出差审核，员工管理</p>
+                </l-container>
+            </l-widget-container>
+            <l-widget-container title="考勤助手" icon="icon icon-calendar">
+                <l-container>
+                    <l-quick-action>
+                        <l-quick-btn title="打卡上下班" icon="icon icon-check" color="green" href="/work"></l-quick-btn>
+                        <l-quick-btn title="出差" icon="icon icon-plane" href="/buzz"></l-quick-btn>
+                        <l-quick-btn title="请假" icon="icon icon-bell" color="yellow" href="/leave"></l-quick-btn>
+                    </l-quick-action>
+                </l-container>
+            </l-widget-container>
+        </l-container>
+    </l-content>
+</div>
+
+
+<script src="../static/lib/js/jquery.min.js"></script>
+<script src="../static/lib/js/jquery.uniform.js"></script>
+<script src="../static/lib/js/jquery.dataTables.min.js"></script>
+<script src="../static/lib/js/bootstrap.min.js"></script>
+<script src="../static/lib/js/matrix.js"></script>
+<script src="../static/lib/js/matrix.tables.js"></script>
+<script src="../static/lib/js/vue.js"></script>
+<script src="../static/lib/js/component.js"></script>
+<script th:inline="javascript">
+    new Vue({
+        el: '#l-app'
+    })
+</script>
+</body>
+</html>
